@@ -13,7 +13,8 @@ Na Criptografia de Chaves Assimétricas, os usuários possuem duas chaves: uma p
 
 Vamos ver como o Diffie-Hellman funciona,Primeiro, criamos as chaves:
 
-########## PYTHON ########## 
+```python
+########## PYTHON ##########
 # Parâmetros
 p = 23
 g = 5
@@ -23,17 +24,18 @@ alice_private_key = 6
 
 # Chave privada de Bob
 bob_private_key = 15
-########## PYTHON ########## 
+```
 
 Agora, vamos gerar as chaves públicas:
 
+```python
 ########## PYTHON ########## 
 # Chave pública de Alice
 alice_public_key = (g ** alice_private_key) % p
 
 # Chave pública de Bob
 bob_public_key = (g ** bob_private_key) % p
-########## PYTHON ########## 
+```
 
 Com as chaves geradas, Alice e Bob podem trocá-las de forma segura (como um email).
 
@@ -41,13 +43,14 @@ Mas aqui está a MateMágica: mesmo que alguém intercepte as chaves públicas, 
 
 O algoritmo de Diffie-Hellman permite que Alice e Bob calculem a chave compartilhada (senha compartilhada):
 
+```python
 ########## PYTHON ########## 
 # Chave compartilhada de Alice
 alice_shared_key = (bob_public_key ** alice_private_key) % p
 
 # Chave compartilhada de Bob
 bob_shared_key = (alice_public_key ** bob_private_key) % p
-########## PYTHON ########## 
+```
 
 No final, Alice e Bob têm a mesma chave compartilhada (senha), que pode ser usada para criptografar e descriptografar mensagens sem que ninguém mais consiga entender.
 
